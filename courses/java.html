@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Java Course - Basic to Advanced</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins;
+}
+
+body{
+background:linear-gradient(135deg,#f5f7fa,#e0eafc);
+}
+
+/* HEADER */
+header{
+background:linear-gradient(135deg,#6a11cb,#2575fc);
+color:white;
+text-align:center;
+padding:60px;
+border-bottom-left-radius:40px;
+border-bottom-right-radius:40px;
+}
+
+header h1{
+font-size:48px;
+}
+
+/* NAV */
+nav{
+background:white;
+padding:15px;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+nav a{
+text-decoration:none;
+color:#6a11cb;
+font-weight:600;
+padding:8px 15px;
+border-radius:10px;
+}
+
+nav a:hover{
+background:#6a11cb;
+color:white;
+}
+
+/* SECTION */
+section{
+max-width:1000px;
+margin:40px auto;
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+h2{
+color:#ff416c;
+margin-bottom:20px;
+}
+
+/* CODE BLOCK */
+.example{
+background:#f4f4f4;
+padding:15px;
+border-radius:10px;
+margin:15px 0;
+}
+
+pre{
+background:#111;
+color:#0f0;
+padding:15px;
+border-radius:10px;
+overflow-x:auto;
+}
+
+/* OUTPUT */
+.output{
+background:white;
+padding:15px;
+border:1px solid #ddd;
+margin-top:10px;
+font-family:monospace;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:20px;
+background:#111;
+color:white;
+margin-top:40px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>Java Course</h1>
+<p>Beginner → Advanced with Output</p>
+</header>
+
+<nav>
+<a href="#basics">Basics</a>
+<a href="#oop">OOP</a>
+<a href="#advanced">Advanced</a>
+<a href="#enterprise">Enterprise</a>
+<a href="#frameworks">Frameworks</a>
+</nav>
+
+<!-- BASICS -->
+<section id="basics">
+<h2>1️⃣ Java Basics</h2>
+
+<div class="example">
+Code
+<pre>
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
+}
+</pre>
+Output
+<div class="output">
+Hello World!
+</div>
+</div>
+
+<div class="example">
+Code
+<pre>
+int[] arr = {1,2,3};
+for(int num: arr){
+    System.out.println(num);
+}
+</pre>
+Output
+<div class="output">
+1
+2
+3
+</div>
+</div>
+
+<div class="example">
+Code
+<pre>
+int i = 10;
+if(i > 5){
+    System.out.println("Greater");
+}
+</pre>
+Output
+<div class="output">
+Greater
+</div>
+</div>
+
+</section>
+
+<!-- OOP -->
+<section id="oop">
+<h2>2️⃣ OOP</h2>
+
+<div class="example">
+Code
+<pre>
+class Person {
+    String name;
+    void greet() {
+        System.out.println("Hello " + name);
+    }
+}
+
+Person p = new Person();
+p.name = "Santhosh";
+p.greet();
+</pre>
+Output
+<div class="output">
+Hello Santhosh
+</div>
+</div>
+
+<div class="example">
+Code
+<pre>
+class Animal {
+    void speak(){ System.out.println("Animal"); }
+}
+
+class Dog extends Animal {
+    void speak(){ System.out.println("Dog"); }
+}
+
+Animal a = new Dog();
+a.speak();
+</pre>
+Output
+<div class="output">
+Dog
+</div>
+</div>
+
+</section>
+
+<!-- ADVANCED -->
+<section id="advanced">
+<h2>3️⃣ Advanced</h2>
+
+<div class="example">
+Code
+<pre>
+ArrayList<String> list = new ArrayList<>();
+list.add("A");
+list.add("B");
+
+for(String s:list){
+    System.out.println(s);
+}
+</pre>
+Output
+<div class="output">
+A
+B
+</div>
+</div>
+
+<div class="example">
+Code
+<pre>
+class MyThread extends Thread {
+    public void run(){
+        System.out.println("Thread running");
+    }
+}
+
+new MyThread().start();
+</pre>
+Output
+<div class="output">
+Thread running
+</div>
+</div>
+
+</section>
+
+<!-- ENTERPRISE -->
+<section id="enterprise">
+<h2>4️⃣ Enterprise</h2>
+
+<div class="example">
+Code
+<pre>
+System.out.println("Connected to DB");
+</pre>
+Output
+<div class="output">
+Connected to DB
+</div>
+</div>
+
+<div class="example">
+Code
+<pre>
+System.out.println("Hello Client");
+</pre>
+Output
+<div class="output">
+Hello Client
+</div>
+</div>
+
+</section>
+
+<!-- FRAMEWORKS -->
+<section id="frameworks">
+<h2>5️⃣ Frameworks</h2>
+
+<div class="example">
+Code
+<pre>
+@GetMapping("/")
+public String home(){
+    return "Hello Spring Boot";
+}
+</pre>
+Output
+<div class="output">
+Hello Spring Boot
+</div>
+</div>
+
+<div class="example">
+Code
+<pre>
+@GetMapping("/hello")
+public String hello(){
+    return "Hello API";
+}
+</pre>
+Output
+<div class="output">
+Hello API
+</div>
+</div>
+
+</section>
+
+<footer>
+Java Course - Beginner to Advanced 🚀
+</footer>
+
+</body>
+</html>

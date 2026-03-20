@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>C++ Course</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins;
+}
+
+body{
+background:linear-gradient(135deg,#f5f7fa,#e0eafc);
+}
+
+/* HEADER */
+
+header{
+background:linear-gradient(135deg,#004e92,#000428);
+color:white;
+text-align:center;
+padding:60px;
+border-bottom-left-radius:40px;
+border-bottom-right-radius:40px;
+}
+
+header h1{
+font-size:48px;
+}
+
+/* NAV */
+
+nav{
+background:white;
+padding:15px;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+nav a{
+text-decoration:none;
+color:#004e92;
+font-weight:600;
+padding:8px 15px;
+border-radius:10px;
+}
+
+nav a:hover{
+background:#004e92;
+color:white;
+}
+
+/* SECTIONS */
+
+section{
+max-width:1000px;
+margin:40px auto;
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+h2{
+color:#000428;
+margin-bottom:20px;
+}
+
+h3{
+color:#004e92;
+margin-top:20px;
+}
+
+.example{
+background:#f4f4f4;
+padding:15px;
+border-radius:10px;
+margin:15px 0;
+}
+
+.output{
+background:white;
+padding:15px;
+border:1px solid #ddd;
+margin-top:10px;
+font-family:monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>C++ Programming</h1>
+<p>Beginner → Advanced</p>
+</header>
+
+<nav>
+
+<a href="#intro">Introduction</a>
+<a href="#variables">Variables</a>
+<a href="#operators">Operators</a>
+<a href="#loops">Loops</a>
+<a href="#functions">Functions</a>
+<a href="#arrays">Arrays</a>
+<a href="#oop">OOP</a>
+
+</nav>
+
+<!-- INTRODUCTION -->
+
+<section id="intro">
+
+<h2>1️⃣ Introduction to C++</h2>
+
+<div class="example">
+
+Code
+
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+
+cout << "Hello World";
+
+return 0;
+}
+</pre>
+
+Output
+
+<div class="output">
+Hello World
+</div>
+
+</div>
+
+</section>
+
+<!-- VARIABLES -->
+
+<section id="variables">
+
+<h2>2️⃣ Variables & Data Types</h2>
+
+<div class="example">
+
+Code
+
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+
+int age = 20;
+float price = 99.5;
+char grade = 'A';
+
+cout << age << endl;
+cout << price << endl;
+cout << grade;
+
+}
+</pre>
+
+Output
+
+<div class="output">
+20  
+99.5  
+A
+</div>
+
+</div>
+
+</section>
+
+<!-- OPERATORS -->
+
+<section id="operators">
+
+<h2>3️⃣ Operators</h2>
+
+<div class="example">
+
+Code
+
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+
+int a=10;
+int b=5;
+
+cout << a+b << endl;
+cout << a-b << endl;
+cout << a*b << endl;
+
+}
+</pre>
+
+Output
+
+<div class="output">
+15  
+5  
+50
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTROL STATEMENTS -->
+
+<section>
+
+<h2>4️⃣ Control Statements</h2>
+
+<div class="example">
+
+Code
+
+<pre>
+int num=10;
+
+if(num>0)
+cout<<"Positive number";
+else
+cout<<"Negative number";
+</pre>
+
+Output
+
+<div class="output">
+Positive number
+</div>
+
+</div>
+
+</section>
+
+<!-- LOOPS -->
+
+<section id="loops">
+
+<h2>5️⃣ Loops</h2>
+
+<div class="example">
+
+Code
+
+<pre>
+for(int i=1;i<=5;i++){
+cout << i << endl;
+}
+</pre>
+
+Output
+
+<div class="output">
+1  
+2  
+3  
+4  
+5
+</div>
+
+</div>
+
+</section>
+
+<!-- FUNCTIONS -->
+
+<section id="functions">
+
+<h2>6️⃣ Functions</h2>
+
+<div class="example">
+
+Code
+
+<pre>
+int add(int a,int b){
+
+return a+b;
+
+}
+
+int main(){
+
+cout<<add(5,3);
+
+}
+</pre>
+
+Output
+
+<div class="output">
+8
+</div>
+
+</div>
+
+</section>
+
+<!-- ARRAYS -->
+
+<section id="arrays">
+
+<h2>7️⃣ Arrays</h2>
+
+<div class="example">
+
+Code
+
+<pre>
+int arr[3]={10,20,30};
+
+for(int i=0;i<3;i++){
+cout<<arr[i];
+}
+</pre>
+
+Output
+
+<div class="output">
+10 20 30
+</div>
+
+</div>
+
+</section>
+
+<!-- STRINGS -->
+
+<section>
+
+<h2>8️⃣ Strings</h2>
+
+<div class="example">
+
+Code
+
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main(){
+
+string name="John";
+
+cout<<name;
+
+}
+</pre>
+
+Output
+
+<div class="output">
+John
+</div>
+
+</div>
+
+</section>
+
+<!-- POINTERS -->
+
+<section>
+
+<h2>9️⃣ Pointers</h2>
+
+<div class="example">
+
+Code
+
+<pre>
+int a=10;
+int *p;
+
+p=&a;
+
+cout<<*p;
+</pre>
+
+Output
+
+<div class="output">
+10
+</div>
+
+</div>
+
+</section>
+
+<!-- OOP -->
+
+<section id="oop">
+
+<h2>Object-Oriented Programming</h2>
+
+<div class="example">
+
+Code
+
+<pre>
+class Car{
+
+public:
+string brand;
+
+};
+
+int main(){
+
+Car c1;
+c1.brand="BMW";
+
+cout<<c1.brand;
+
+}
+</pre>
+
+Output
+
+<div class="output">
+BMW
+</div>
+
+</div>
+
+</section>
+
+<!-- FILE HANDLING -->
+
+<section>
+
+<h2> File Handling</h2>
+
+<div class="example">
+
+Code
+
+<pre>
+#include &lt;fstream&gt;
+
+ofstream file("data.txt");
+
+file<<"Hello";
+
+file.close();
+</pre>
+
+Output
+
+<div class="output">
+File "data.txt" created and written successfully
+</div>
+
+</div>
+
+</section>
+
+<!-- STL -->
+
+<section>
+
+<h2> Standard Template Library</h2>
+
+<div class="example">
+
+Code
+
+<pre>
+#include &lt;vector&gt;
+
+vector&lt;int&gt; v={1,2,3};
+
+for(int i:v)
+cout<<i;
+</pre>
+
+Output
+
+<div class="output">
+1 2 3
+</div>
+
+</div>
+
+</section>
+
+<!-- ADVANCED -->
+
+<section>
+
+<h2> Advanced C++</h2>
+
+<div class="example">
+
+Code
+
+<pre>
+template &lt;typename T&gt;
+
+T add(T a,T b){
+
+return a+b;
+
+}
+</pre>
+
+Output
+
+<div class="output">
+Generic function for multiple data types
+</div>
+
+</div>
+
+</section>
+
+<footer style="text-align:center;padding:20px;background:#111;color:white;margin-top:40px;">
+C++ Course - Beginner to Advanced
+</footer>
+
+</body>
+
+</html>
