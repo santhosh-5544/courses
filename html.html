@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>HTML Course</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Poppins;
+background:linear-gradient(135deg,#f5f7fa,#e0eafc);
+}
+
+/* HEADER */
+
+header{
+background:linear-gradient(135deg,#6a11cb,#2575fc);
+color:white;
+text-align:center;
+padding:60px;
+border-bottom-left-radius:40px;
+border-bottom-right-radius:40px;
+}
+
+header h1{
+font-size:50px;
+}
+
+/* NAV */
+
+nav{
+background:white;
+padding:15px;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+nav a{
+text-decoration:none;
+color:#6a11cb;
+font-weight:600;
+padding:8px 15px;
+border-radius:10px;
+}
+
+nav a:hover{
+background:#6a11cb;
+color:white;
+}
+
+/* SECTIONS */
+
+section{
+max-width:1000px;
+margin:40px auto;
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+h2{
+color:#ff416c;
+margin-bottom:20px;
+}
+
+h3{
+color:#2575fc;
+margin-top:20px;
+}
+
+.example{
+background:#f4f4f4;
+padding:15px;
+border-radius:10px;
+margin:10px 0;
+}
+
+.output{
+background:#fff;
+padding:10px;
+border:1px solid #ddd;
+margin-top:10px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:#111;
+color:white;
+margin-top:40px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>HTML Course</h1>
+<p>Beginner → Advanced</p>
+</header>
+
+<nav>
+<a href="#basics">Basics</a>
+<a href="#format">Formatting</a>
+<a href="#links">Links</a>
+<a href="#lists">Lists</a>
+<a href="#tables">Tables</a>
+<a href="#forms">Forms</a>
+</nav>
+
+<!-- BASICS -->
+
+<section id="basics">
+
+<h2>1️⃣ HTML Fundamentals</h2>
+
+<h3>Example 1</h3>
+
+<div class="example">
+Code:
+<pre>&lt;h1&gt;Hello World&lt;/h1&gt;</pre>
+
+Output:
+<div class="output">
+<h1>Hello World</h1>
+</div>
+</div>
+
+<h3>Example 2</h3>
+
+<div class="example">
+Code:
+<pre>&lt;p&gt;This is paragraph&lt;/p&gt;</pre>
+
+Output:
+<div class="output">
+<p>This is paragraph</p>
+</div>
+</div>
+
+<h3>Example 3</h3>
+
+<div class="example">
+Code:
+<pre>&lt;hr&gt;</pre>
+
+Output:
+<div class="output">
+<hr>
+</div>
+</div>
+
+</section>
+
+<!-- TEXT FORMATTING -->
+
+<section id="format">
+
+<h2>2️⃣ Text Formatting</h2>
+
+<h3>Example 1</h3>
+
+<div class="example">
+Code:
+<pre>&lt;b&gt;Bold Text&lt;/b&gt;</pre>
+
+Output:
+<div class="output">
+<b>Bold Text</b>
+</div>
+</div>
+
+<h3>Example 2</h3>
+
+<div class="example">
+Code:
+<pre>&lt;i&gt;Italic&lt;/i&gt;</pre>
+
+Output:
+<div class="output">
+<i>Italic</i>
+</div>
+</div>
+
+<h3>Example 3</h3>
+
+<div class="example">
+Code:
+<pre>&lt;mark&gt;Highlight&lt;/mark&gt;</pre>
+
+Output:
+<div class="output">
+<mark>Highlight</mark>
+</div>
+</div>
+
+</section>
+
+<!-- LINKS -->
+
+<section id="links">
+
+<h2>3️⃣ Links and Images</h2>
+
+<h3>Example 1</h3>
+
+<div class="example">
+Code:
+<pre>&lt;a href="https://google.com"&gt;Visit Google&lt;/a&gt;</pre>
+
+Output:
+<div class="output">
+<a href="https://google.com">Visit Google</a>
+</div>
+</div>
+
+<h3>Example 2</h3>
+
+<div class="example">
+Code:
+<pre>&lt;img src="https://picsum.photos/200"&gt;</pre>
+
+Output:
+<div class="output">
+<img src="https://picsum.photos/200">
+</div>
+</div>
+
+<h3>Example 3</h3>
+
+<div class="example">
+Code:
+<pre>&lt;a href="#"&gt;Click Me&lt;/a&gt;</pre>
+
+Output:
+<div class="output">
+<a href="#">Click Me</a>
+</div>
+</div>
+
+</section>
+
+<!-- LISTS -->
+
+<section id="lists">
+
+<h2>4️⃣ Lists</h2>
+
+<h3>Example 1</h3>
+
+<div class="example">
+
+Code:
+
+<pre>
+&lt;ul&gt;
+&lt;li&gt;Apple&lt;/li&gt;
+&lt;li&gt;Banana&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+
+Output:
+
+<div class="output">
+<ul>
+<li>Apple</li>
+<li>Banana</li>
+</ul>
+</div>
+
+</div>
+
+<h3>Example 2</h3>
+
+<div class="example">
+
+Code:
+
+<pre>
+&lt;ol&gt;
+&lt;li&gt;HTML&lt;/li&gt;
+&lt;li&gt;CSS&lt;/li&gt;
+&lt;/ol&gt;
+</pre>
+
+Output:
+
+<div class="output">
+<ol>
+<li>HTML</li>
+<li>CSS</li>
+</ol>
+</div>
+
+</div>
+
+<h3>Example 3</h3>
+
+<div class="example">
+
+Code:
+
+<pre>
+&lt;dl&gt;
+&lt;dt&gt;HTML&lt;/dt&gt;
+&lt;dd&gt;Web structure&lt;/dd&gt;
+&lt;/dl&gt;
+</pre>
+
+Output:
+
+<div class="output">
+<dl>
+<dt>HTML</dt>
+<dd>Web structure</dd>
+</dl>
+</div>
+
+</div>
+
+</section>
+
+<!-- TABLES -->
+
+<section id="tables">
+
+<h2>5️⃣ Tables</h2>
+
+<div class="example">
+
+Code:
+
+<pre>
+&lt;table border="1"&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Marks&lt;/th&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;John&lt;/td&gt;
+&lt;td&gt;90&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;/table&gt;
+</pre>
+
+Output:
+
+<div class="output">
+
+<table border="1">
+
+<tr>
+<th>Name</th>
+<th>Marks</th>
+</tr>
+
+<tr>
+<td>John</td>
+<td>90</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FORMS -->
+
+<section id="forms">
+
+<h2>6️⃣ Forms</h2>
+
+<div class="example">
+
+Code:
+
+<pre>
+&lt;form&gt;
+
+Name:
+&lt;input type="text"&gt;
+
+Email:
+&lt;input type="email"&gt;
+
+&lt;button&gt;Submit&lt;/button&gt;
+
+&lt;/form&gt;
+</pre>
+
+Output:
+
+<div class="output">
+
+<form>
+
+Name:
+<input type="text">
+
+Email:
+<input type="email">
+
+<button>Submit</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+HTML Course – Beginner to Advanced
+
+</footer>
+
+</body>
+</html>

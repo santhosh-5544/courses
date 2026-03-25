@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All-in-One Compiler</title>
+<style>
+body { font-family:sans-serif; margin:0; padding:0; background:#f5f7fa; }
+header { padding:20px; text-align:center; background:linear-gradient(135deg,#6a11cb,#2575fc); color:white; }
+textarea { width:90%; height:300px; margin:20px auto; display:block; font-family:monospace; font-size:14px; padding:10px; border-radius:10px; }
+select, button { margin:10px; padding:10px 20px; font-size:16px; border-radius:10px; }
+.output { width:90%; margin:20px auto; padding:20px; min-height:150px; background:white; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,0.1); font-family:monospace; white-space:pre-wrap; }
+</style>
+</head>
+<body>
+<header>
+<h1>All-in-One Compiler</h1>
+</header>
+
+<select id="language">
+  <option value="Python">Python</option>
+  <option value="Java">Java</option>
+  <option value="C++">C++</option>
+  <option value="NodeJS">NodeJS</option>
+  <option value="React">React</option>
+  <option value="MySQL">MySQL</option>
+  <option value="MongoDB">MongoDB</option>
+  <option value="JavaScript">JavaScript</option>
+  <option value="HTML">HTML</option>
+  <option value="CSS">CSS</option>
+</select>
+
+<textarea id="code" placeholder="Write your code here..."></textarea>
+<button onclick="runCode()">Run Code</button>
+
+<div class="output" id="output"></div>
+
+<script>
+function runCode() {
+  const lang = document.getElementById('language').value;
+  const code = document.getElementById('code').value;
+  const output = document.getElementById('output');
+
+  fetch('http://localhost:3000/run', {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ language: lang, code: code })
+  })
+  .then(res => res.json())
+  .then(data => { output.innerText = data.output })
+  .catch(err => { output.innerText = 'Error: '+err.message });
+}
+</script>
+</body>
+</html>

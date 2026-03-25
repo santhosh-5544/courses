@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MySQL Course</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins;
+}
+
+body{
+background:linear-gradient(135deg,#f5f7fa,#e0eafc);
+}
+
+/* HEADER */
+
+header{
+background:linear-gradient(135deg,#0072ff,#00c6ff);
+color:white;
+text-align:center;
+padding:60px;
+border-bottom-left-radius:40px;
+border-bottom-right-radius:40px;
+}
+
+header h1{
+font-size:48px;
+}
+
+/* NAV */
+
+nav{
+background:white;
+padding:15px;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+nav a{
+text-decoration:none;
+color:#0072ff;
+font-weight:600;
+padding:8px 15px;
+border-radius:10px;
+}
+
+nav a:hover{
+background:#0072ff;
+color:white;
+}
+
+/* SECTIONS */
+
+section{
+max-width:1000px;
+margin:40px auto;
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+h2{
+color:#0072ff;
+margin-bottom:20px;
+}
+
+.example{
+background:#f4f4f4;
+padding:15px;
+border-radius:10px;
+margin:15px 0;
+}
+
+.output{
+background:white;
+padding:15px;
+border:1px solid #ddd;
+margin-top:10px;
+font-family:monospace;
+}
+
+table{
+border-collapse:collapse;
+width:100%;
+margin-top:10px;
+}
+
+table,th,td{
+border:1px solid #ccc;
+padding:8px;
+text-align:left;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>MySQL Database Course</h1>
+<p>Beginner → Advanced</p>
+</header>
+
+<nav>
+
+<a href="#basic">Basic SQL</a>
+<a href="#insert">Insert</a>
+<a href="#select">Select</a>
+<a href="#filter">Filtering</a>
+<a href="#joins">Joins</a>
+<a href="#functions">Functions</a>
+
+</nav>
+
+<!-- CREATE DATABASE -->
+
+<section id="basic">
+
+<h2>Basic SQL Commands</h2>
+
+<div class="example">
+
+SQL Code
+
+<pre>
+CREATE DATABASE school;
+USE school;
+
+CREATE TABLE students(
+id INT,
+name VARCHAR(50),
+marks INT
+);
+</pre>
+
+Output
+
+<div class="output">
+Database created successfully  
+Table "students" created
+</div>
+
+</div>
+
+</section>
+
+<!-- INSERT -->
+
+<section id="insert">
+
+<h2> INSERT Data</h2>
+
+<div class="example">
+
+SQL Code
+
+<pre>
+INSERT INTO students
+VALUES(1,'John',85);
+</pre>
+
+Output
+
+<div class="output">
+1 row inserted
+</div>
+
+</div>
+
+</section>
+
+<!-- SELECT -->
+
+<section id="select">
+
+<h2>SELECT Data</h2>
+
+<div class="example">
+
+SQL Code
+
+<pre>
+SELECT * FROM students;
+</pre>
+
+Output
+
+<div class="output">
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Marks</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>John</td>
+<td>85</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FILTER -->
+
+<section id="filter">
+
+<h2>Filtering Data</h2>
+
+<div class="example">
+
+SQL Code
+
+<pre>
+SELECT * FROM students
+WHERE marks > 80;
+</pre>
+
+Output
+
+<div class="output">
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Marks</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>John</td>
+<td>85</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ORDER -->
+
+<section>
+
+<h2>Sorting Data</h2>
+
+<div class="example">
+
+SQL Code
+
+<pre>
+SELECT * FROM students
+ORDER BY marks DESC;
+</pre>
+
+Output
+
+<div class="output">
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Marks</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>John</td>
+<td>85</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- AGGREGATE -->
+
+<section id="functions">
+
+<h2>Aggregate Functions</h2>
+
+<div class="example">
+
+SQL Code
+
+<pre>
+SELECT AVG(marks)
+FROM students;
+</pre>
+
+Output
+
+<div class="output">
+AVG(marks)
+-----------
+85
+</div>
+
+</div>
+
+</section>
+
+<!-- GROUP BY -->
+
+<section>
+
+<h2>GROUP BY</h2>
+
+<div class="example">
+
+SQL Code
+
+<pre>
+SELECT marks,COUNT(*)
+FROM students
+GROUP BY marks;
+</pre>
+
+Output
+
+<div class="output">
+
+<table>
+
+<tr>
+<th>Marks</th>
+<th>Count</th>
+</tr>
+
+<tr>
+<td>85</td>
+<td>1</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- JOINS -->
+
+<section id="joins">
+
+<h2>Joins</h2>
+
+<div class="example">
+
+SQL Code
+
+<pre>
+SELECT students.name, courses.course
+FROM students
+INNER JOIN courses
+ON students.id = courses.student_id;
+</pre>
+
+Output
+
+<div class="output">
+
+<table>
+
+<tr>
+<th>Name</th>
+<th>Course</th>
+</tr>
+
+<tr>
+<td>John</td>
+<td>Python</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- VIEW -->
+
+<section>
+
+<h2>Views</h2>
+
+<div class="example">
+
+SQL Code
+
+<pre>
+CREATE VIEW top_students AS
+SELECT name,marks
+FROM students
+WHERE marks>80;
+</pre>
+
+Output
+
+<div class="output">
+View created successfully
+</div>
+
+</div>
+
+</section>
+
+<!-- STORED PROCEDURE -->
+
+<section>
+
+<h2>Stored Procedure</h2>
+
+<div class="example">
+
+SQL Code
+
+<pre>
+CREATE PROCEDURE GetStudents()
+
+SELECT * FROM students;
+</pre>
+
+Output
+
+<div class="output">
+Procedure created successfully
+</div>
+
+</div>
+
+</section>
+
+<!-- TRIGGER -->
+
+<section>
+
+<h2>Triggers</h2>
+
+<div class="example">
+
+SQL Code
+
+<pre>
+CREATE TRIGGER before_insert
+BEFORE INSERT ON students
+FOR EACH ROW
+SET NEW.marks = 0;
+</pre>
+
+Output
+
+<div class="output">
+Trigger created successfully
+</div>
+
+</div>
+
+</section>
+
+<footer style="text-align:center;padding:20px;background:#111;color:white;margin-top:40px;">
+MySQL Course - Beginner to Advanced
+</footer>
+
+</body>
+</html>

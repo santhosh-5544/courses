@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Courses Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Poppins', sans-serif; background: linear-gradient(135deg,#f5f7fa,#e0eafc); color:#333; }
+
+  /* Header */
+  header {
+    background: linear-gradient(135deg,#6a11cb,#2575fc);
+    color:white;
+    text-align:center;
+    padding:60px 20px;
+    position:relative;
+    border-bottom-left-radius:50px;
+    border-bottom-right-radius:50px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  }
+  header h1 { font-size:50px; margin-bottom:10px; letter-spacing:2px; }
+  header p { font-size:18px; opacity:0.9; }
+
+  /* Compiler Button */
+  .compiler-btn {
+    position:absolute;
+    top:25px;
+    right:25px;
+    background: linear-gradient(135deg,#ff416c,#ff4b2b);
+    color:white;
+    padding:15px 30px;
+    border-radius:50px;
+    font-weight:bold;
+    text-decoration:none;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    transition:0.4s;
+  }
+  .compiler-btn:hover {
+    transform: scale(1.05);
+    box-shadow:0 8px 25px rgba(0,0,0,0.3);
+  }
+
+  /* Container */
+  .container {
+    width:90%;
+    max-width:1200px;
+    margin:50px auto;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:30px;
+  }
+
+  /* Course Card */
+  .course-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(15px);
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    cursor:pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border:1px solid rgba(255,255,255,0.2);
+    box-shadow:0 8px 25px rgba(0,0,0,0.1);
+  }
+  .course-card:hover {
+    transform: translateY(-10px);
+    box-shadow:0 15px 40px rgba(0,0,0,0.3);
+  }
+  .course-card h3 {
+    color:#fff;
+    font-size:22px;
+    margin-bottom:15px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+  }
+  .course-card a {
+    display:inline-block;
+    text-decoration:none;
+    color:white;
+    background: linear-gradient(135deg,#6a11cb,#2575fc);
+    padding:12px 25px;
+    border-radius:50px;
+    font-weight:600;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    transition:0.3s;
+  }
+  .course-card a:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg,#ff416c,#ff4b2b);
+    box-shadow:0 8px 25px rgba(0,0,0,0.3);
+  }
+
+  /* Modal */
+  .modal {
+    display:none;
+    position:fixed;
+    top:0; left:0; width:100%; height:100%;
+    background: rgba(0,0,0,0.7);
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+  }
+  .modal-content {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(20px);
+    border-radius:25px;
+    width:90%;
+    max-width:900px;
+    padding:40px;
+    position:relative;
+    box-shadow:0 15px 50px rgba(0,0,0,0.4);
+    max-height:85vh;
+    overflow-y:auto;
+    animation:fadeIn 0.4s ease-in-out;
+    border:1px solid rgba(255,255,255,0.2);
+  }
+  @keyframes fadeIn { from{opacity:0; transform:translateY(-20px);} to{opacity:1; transform:translateY(0);} }
+
+  .close-btn {
+    position:absolute;
+    top:20px; right:25px;
+    font-size:28px;
+    font-weight:bold;
+    cursor:pointer;
+    color:white;
+    transition:0.3s;
+  }
+  .close-btn:hover { color:#ff416c; }
+
+  .modal-content h2 { color:#ff416c; margin-bottom:20px; text-shadow: 1px 1px 5px rgba(0,0,0,0.3);}
+  .modal-content .section { margin-bottom:25px; }
+  .modal-content .section h3 { color:#6a11cb; margin-bottom:10px; }
+  .modal-content p { margin-bottom:10px; font-size:16px; color:#fff; }
+  .modal-content pre {
+    background: rgba(0,0,0,0.2);
+    color:white;
+    padding:15px;
+    border-radius:12px;
+    overflow-x:auto;
+    margin-bottom:15px;
+    font-family: 'Courier New', monospace;
+  }
+.exercise-btn {
+  position:absolute;
+  top:25px;
+  left:25px;
+  background: linear-gradient(135deg,#00c9ff,#92fe9d);
+  color:black;
+  padding:15px 30px;
+  border-radius:50px;
+  font-weight:bold;
+  text-decoration:none;
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+  transition:0.4s;
+}
+
+.exercise-btn:hover {
+  transform: scale(1.05);
+  box-shadow:0 8px 25px rgba(0,0,0,0.3);
+}
+
+  /* Footer */
+  footer { text-align:center; padding:30px; background:#141414; color:white; font-size:14px; margin-top:50px; }
+
+  @media(max-width:1024px){ .container { grid-template-columns: repeat(2, 1fr); } }
+  @media(max-width:768px){
+    header h1 { font-size:36px; }
+    .modal-content { padding:25px; }
+    .compiler-btn { padding:12px 20px; top:15px; right:15px; }
+    .container { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+<a href="#" class="exercise-btn" onclick="openExercisePage()">Exercises</a>
+  <h1>Easy To Exam</h1>
+  <p>Click on any course to see details and resources</p>
+  <a href="#" class="compiler-btn" onclick="openCompiler()">Compiler</a>
+</header>
+
+<div class="container">
+  <div class="course-card" onclick="window.location.href='python.html'"><h3>Python</h3></div>
+  <div class="course-card" onclick="window.location.href='java.html'"><h3>Java</h3></div>
+  <div class="course-card" onclick="window.location.href='html.html'"><h3>HTML</h3></div>
+  <div class="course-card" onclick="window.location.href='css.html'"><h3>CSS</h3></div>
+  <div class="course-card" onclick="window.location.href='javascript.html'"><h3>JavaScript</h3></div>
+  <div class="course-card" onclick="window.location.href='cpp.html'"><h3>C++</h3></div>
+  <div class="course-card" onclick="window.location.href='mysql.html'"><h3>MySQL</h3></div>
+  <div class="course-card" onclick="window.location.href='nodejs.html'"><h3>NodeJS</h3></div>
+  <div class="course-card" onclick="window.location.href='react.html'"><h3>React</h3></div>
+  <div class="course-card" onclick="window.location.href='mongodb.html'"><h3>MongoDB</h3></div>
+  <div class="course-card" onclick="window.location.href='exercise.html'"><h3>Exercise</h3></div>
+</div>
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2 id="modal-title">Course Title</h2>
+    <div id="modal-description"></div>
+  </div>
+</div>
+
+<footer>
+  &copy; 2026 Courses Dashboard | Made by Santhosh
+</footer>
+
+<script>
+const courseData = {
+  "Python": `
+    <div class="section"><h3>Python Basics</h3>
+    <p>Learn variables, data types, loops, and functions in Python.</p>
+    <pre># Example
+x = 5
+if x &gt; 0:
+    print("Positive")</pre>
+    </div>
+    <div class="section"><h3>Advanced Python</h3>
+    <p>OOP, modules, file handling, libraries like NumPy and Pandas.</p>
+    <pre>class Person:
+    def __init__(self, name):
+        self.name = name</pre>
+    </div>
+  `,
+  "Java": `<div class="section"><h3>Java Basics</h3><p>Variables, loops, methods.</p><pre>public class HelloWorld { public static void main(String[] args) { System.out.println("Hello World"); } }</pre></div>`,
+  "HTML": `<div class="section"><h3>HTML Basics</h3><p>Headings, paragraphs, links, images.</p><pre>&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n&lt;body&gt;\n&lt;h1&gt;Hello&lt;/h1&gt;\n&lt;/body&gt;\n&lt;/html&gt;</pre></div>`,
+  "CSS": `<div class="section"><h3>CSS Basics</h3><p>Selectors, colors, margins, padding, layouts.</p><pre>body { background-color:#f5f5f5; font-family:Arial; }</pre></div>`,
+  "JavaScript": `<div class="section"><h3>JS Basics</h3><p>Variables, functions, events, DOM manipulation.</p><pre>let x = 5;\nif(x &gt; 0){ console.log("Positive"); }</pre></div>`,
+  "C++": `<div class="section"><h3>C++ Basics</h3><p>Variables, loops, functions.</p><pre>#include &lt;iostream&gt;\nusing namespace std;\nint main(){ cout &lt;&lt; "Hello World"; return 0; }</pre></div>`,
+  "MySQL": `<div class="section"><h3>MySQL Basics</h3><p>Create database, tables, insert/query data.</p><pre>CREATE TABLE EMPLOYEE (empId INT, name VARCHAR(15), dept VARCHAR(10));\nINSERT INTO EMPLOYEE(empId,name,dept) VALUES (1,'Clark','Sales');</pre></div>`,
+  "NodeJS": `<div class="section"><h3>NodeJS Basics</h3><p>Create server, handle requests, npm packages.</p><pre>const http = require('http');\nconst server = http.createServer((req,res)=>{ res.end("Hello NodeJS"); });\nserver.listen(3000);</pre></div>`,
+  "React": `<div class="section"><h3>React Basics</h3><p>Components, props, state, hooks.</p><pre>function App(){ return &lt;h1&gt;Hello React&lt;/h1&gt;; }</pre></div>`,
+  "MongoDB": `<div class="section"><h3>MongoDB Basics</h3><p>Create database, collection, insert/query documents.</p><pre>use mydb\ndb.users.insert({name:"John", age:30});</pre></div>`
+};
+function openExercisePage(){
+  window.location.href = "exercise.html";
+}
+
+function openModal(course){
+  document.getElementById('modal-title').innerText = course;
+  document.getElementById('modal-description').innerHTML = courseData[course];
+  document.getElementById('modal').style.display = 'flex';
+}
+
+function closeModal(){
+  document.getElementById('modal').style.display = 'none';
+}
+
+function openCompiler(){
+  alert("Embedded compiler page coming soon!");
+}
+
+</script>
+
+
+</body>
+</html>

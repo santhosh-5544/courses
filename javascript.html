@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JavaScript Course</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins;
+}
+
+body{
+background:linear-gradient(135deg,#f5f7fa,#e0eafc);
+}
+
+/* HEADER */
+
+header{
+background:linear-gradient(135deg,#ff512f,#dd2476);
+color:white;
+text-align:center;
+padding:60px;
+border-bottom-left-radius:40px;
+border-bottom-right-radius:40px;
+}
+
+header h1{
+font-size:48px;
+}
+
+/* NAV */
+
+nav{
+background:white;
+padding:15px;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+nav a{
+text-decoration:none;
+color:#ff512f;
+font-weight:600;
+padding:8px 15px;
+border-radius:10px;
+}
+
+nav a:hover{
+background:#ff512f;
+color:white;
+}
+
+/* SECTIONS */
+
+section{
+max-width:1000px;
+margin:40px auto;
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+h2{
+color:#dd2476;
+margin-bottom:20px;
+}
+
+h3{
+color:#ff512f;
+margin-top:20px;
+}
+
+.example{
+background:#f4f4f4;
+padding:15px;
+border-radius:10px;
+margin:15px 0;
+}
+
+.output{
+background:white;
+padding:15px;
+border:1px solid #ddd;
+margin-top:10px;
+}
+
+button{
+padding:8px 15px;
+border:none;
+background:#ff512f;
+color:white;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#dd2476;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>JavaScript Course</h1>
+<p>Beginner → Advanced</p>
+</header>
+
+<nav>
+
+<a href="#variables">Variables</a>
+<a href="#operators">Operators</a>
+<a href="#loops">Loops</a>
+<a href="#functions">Functions</a>
+<a href="#arrays">Arrays</a>
+<a href="#dom">DOM</a>
+<a href="#events">Events</a>
+
+</nav>
+
+<!-- VARIABLES -->
+
+<section id="variables">
+
+<h2>Variables & Data Types</h2>
+
+<div class="example">
+
+Code
+
+<pre>
+let name="John";
+document.write(name);
+</pre>
+
+Output
+
+<div class="output" id="varOutput"></div>
+
+</div>
+
+</section>
+
+<!-- OPERATORS -->
+
+<section id="operators">
+
+<h2>Operators</h2>
+
+<div class="example">
+
+Code
+
+<pre>
+let a=10;
+let b=5;
+let result=a+b;
+</pre>
+
+Output
+
+<div class="output" id="operatorOutput"></div>
+
+</div>
+
+</section>
+
+<!-- LOOPS -->
+
+<section id="loops">
+
+<h2>Loops</h2>
+
+<div class="example">
+
+Code
+
+<pre>
+for(let i=1;i<=5;i++){
+console.log(i)
+}
+</pre>
+
+Output
+
+<div class="output" id="loopOutput"></div>
+
+</div>
+
+</section>
+
+<!-- FUNCTIONS -->
+
+<section id="functions">
+
+<h2>Functions</h2>
+
+<div class="example">
+
+Code
+
+<pre>
+function add(a,b){
+return a+b
+}
+</pre>
+
+Output
+
+<div class="output" id="funcOutput"></div>
+
+</div>
+
+</section>
+
+<!-- ARRAYS -->
+
+<section id="arrays">
+
+<h2>Arrays</h2>
+
+<div class="example">
+
+Code
+
+<pre>
+let fruits=["Apple","Banana","Mango"];
+</pre>
+
+Output
+
+<div class="output" id="arrayOutput"></div>
+
+</div>
+
+</section>
+
+<!-- DOM -->
+
+<section id="dom">
+
+<h2>DOM Manipulation</h2>
+
+<div class="example">
+
+Code
+
+<pre>
+document.getElementById("demo").innerHTML="Hello";
+</pre>
+
+Output
+
+<div class="output">
+
+<p id="demo">Click button</p>
+
+<button onclick="changeText()">Run Code</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- EVENTS -->
+
+<section id="events">
+
+<h2>Events</h2>
+
+<div class="example">
+
+Code
+
+<pre>
+button.addEventListener("click",function(){
+alert("Clicked")
+})
+</pre>
+
+Output
+
+<div class="output">
+
+<button onclick="alert('Button Clicked')">Click Me</button>
+
+</div>
+
+</div>
+
+</section>
+
+<footer style="text-align:center;padding:20px;background:#111;color:white;margin-top:40px;">
+JavaScript Course - Beginner to Advanced
+</footer>
+
+<script>
+
+document.getElementById("varOutput").innerHTML="John";
+
+let a=10;
+let b=5;
+document.getElementById("operatorOutput").innerHTML=a+b;
+
+let loopText="";
+for(let i=1;i<=5;i++){
+loopText+=i+" ";
+}
+document.getElementById("loopOutput").innerHTML=loopText;
+
+function add(x,y){
+return x+y;
+}
+
+document.getElementById("funcOutput").innerHTML=add(5,3);
+
+let fruits=["Apple","Banana","Mango"];
+document.getElementById("arrayOutput").innerHTML=fruits.join(", ");
+
+function changeText(){
+document.getElementById("demo").innerHTML="Hello JavaScript!";
+}
+
+</script>
+
+</body>
+</html>

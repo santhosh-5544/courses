@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Node.js Course</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins;
+}
+
+body{
+background:linear-gradient(135deg,#f5f7fa,#e0eafc);
+}
+
+/* HEADER */
+
+header{
+background:linear-gradient(135deg,#3c873a,#1e5631);
+color:white;
+text-align:center;
+padding:60px;
+border-bottom-left-radius:40px;
+border-bottom-right-radius:40px;
+}
+
+header h1{
+font-size:48px;
+}
+
+/* NAV */
+
+nav{
+background:white;
+padding:15px;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+nav a{
+text-decoration:none;
+color:#3c873a;
+font-weight:600;
+padding:8px 15px;
+border-radius:10px;
+}
+
+nav a:hover{
+background:#3c873a;
+color:white;
+}
+
+/* SECTIONS */
+
+section{
+max-width:1000px;
+margin:40px auto;
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+h2{
+color:#1e5631;
+margin-bottom:20px;
+}
+
+.example{
+background:#f4f4f4;
+padding:15px;
+border-radius:10px;
+margin:15px 0;
+}
+
+.output{
+background:white;
+padding:15px;
+border:1px solid #ddd;
+margin-top:10px;
+font-family:monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>Node.js Course</h1>
+<p>Beginner → Advanced</p>
+</header>
+
+<nav>
+
+<a href="#intro">Introduction</a>
+<a href="#modules">Modules</a>
+<a href="#fs">File System</a>
+<a href="#server">Server</a>
+<a href="#express">Express</a>
+<a href="#api">REST API</a>
+
+</nav>
+
+<!-- INTRO -->
+
+<section id="intro">
+
+<h2> Node.js Fundamentals</h2>
+
+<div class="example">
+
+Code
+
+<pre>
+console.log("Hello Node.js");
+</pre>
+
+Output
+
+<div class="output">
+Hello Node.js
+</div>
+
+</div>
+
+</section>
+
+<!-- MODULES -->
+
+<section id="modules">
+
+<h2>Modules</h2>
+
+<div class="example">
+
+Code (math.js)
+
+<pre>
+function add(a,b){
+return a+b
+}
+
+module.exports=add
+</pre>
+
+Code (app.js)
+
+<pre>
+const add=require('./math')
+
+console.log(add(5,3))
+</pre>
+
+Output
+
+<div class="output">
+8
+</div>
+
+</div>
+
+</section>
+
+<!-- FILE SYSTEM -->
+
+<section id="fs">
+
+<h2> File System Operations</h2>
+
+<div class="example">
+
+Code
+
+<pre>
+const fs=require('fs')
+
+fs.writeFileSync('data.txt','Hello Node')
+</pre>
+
+Output
+
+<div class="output">
+File "data.txt" created successfully
+</div>
+
+</div>
+
+<div class="example">
+
+Code
+
+<pre>
+const data=fs.readFileSync('data.txt','utf8')
+
+console.log(data)
+</pre>
+
+Output
+
+<div class="output">
+Hello Node
+</div>
+
+</div>
+
+</section>
+
+<!-- SERVER -->
+
+<section id="server">
+
+<h2> Creating HTTP Server</h2>
+
+<div class="example">
+
+Code
+
+<pre>
+const http=require('http')
+
+http.createServer((req,res)=>{
+
+res.write("Hello Server")
+res.end()
+
+}).listen(3000)
+</pre>
+
+Output
+
+<div class="output">
+Server running at http://localhost:3000  
+Browser Output → Hello Server
+</div>
+
+</div>
+
+</section>
+
+<!-- EXPRESS -->
+
+<section id="express">
+
+<h2> Express.js Framework</h2>
+
+<div class="example">
+
+Code
+
+<pre>
+const express=require('express')
+const app=express()
+
+app.get('/',(req,res)=>{
+res.send("Welcome")
+})
+
+app.listen(3000)
+</pre>
+
+Output
+
+<div class="output">
+Server running on port 3000  
+Browser Output → Welcome
+</div>
+
+</div>
+
+</section>
+
+<!-- REST API -->
+
+<section id="api">
+
+<h2>REST API</h2>
+
+<div class="example">
+
+Code (GET)
+
+<pre>
+app.get('/users',(req,res)=>{
+
+res.json([
+{name:"John"},
+{name:"Alex"}
+])
+
+})
+</pre>
+
+Output
+
+<div class="output">
+
+[
+{name:"John"},
+{name:"Alex"}
+]
+
+</div>
+
+</div>
+
+<div class="example">
+
+Code (POST)
+
+<pre>
+app.post('/users',(req,res)=>{
+
+res.send("User Added")
+
+})
+</pre>
+
+Output
+
+<div class="output">
+User Added
+</div>
+
+</div>
+
+</section>
+
+<!-- DATABASE -->
+
+<section>
+
+<h2>MySQL with Node.js</h2>
+
+<div class="example">
+
+Code
+
+<pre>
+const mysql=require('mysql')
+
+const db=mysql.createConnection({
+
+host:"localhost",
+user:"root",
+password:"",
+database:"test"
+
+})
+</pre>
+
+Output
+
+<div class="output">
+Connected to MySQL database
+</div>
+
+</div>
+
+</section>
+
+<!-- AUTH -->
+
+<section>
+
+<h2> Authentication</h2>
+
+<div class="example">
+
+Code
+
+<pre>
+const bcrypt=require('bcrypt')
+
+bcrypt.hash("password",10)
+</pre>
+
+Output
+
+<div class="output">
+$2b$10$hashedpasswordvalue
+</div>
+
+</div>
+
+</section>
+
+<!-- ASYNC -->
+
+<section>
+
+<h2> Async Programming</h2>
+
+<div class="example">
+
+Code
+
+<pre>
+async function getData(){
+
+return "Hello"
+
+}
+
+getData().then(console.log)
+</pre>
+
+Output
+
+<div class="output">
+Hello
+</div>
+
+</div>
+
+</section>
+
+<!-- ERROR -->
+
+<section>
+
+<h2> Error Handling</h2>
+
+<div class="example">
+
+Code
+
+<pre>
+try{
+
+JSON.parse("invalid")
+
+}catch(err){
+
+console.log("Error handled")
+
+}
+</pre>
+
+Output
+
+<div class="output">
+Error handled
+</div>
+
+</div>
+
+</section>
+
+<footer style="text-align:center;padding:20px;background:#111;color:white;margin-top:40px;">
+Node.js Course - Beginner to Advanced
+</footer>
+
+</body>
+</html>
